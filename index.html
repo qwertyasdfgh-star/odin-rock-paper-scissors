@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="min-h-screen flex flex-col" onload="AOS.init(); feather.replace();">
+    <main class="container mx-auto px-4 py-8">
+        <!-- Game Title -->
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h1 class="text-6xl font-extrabold">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+                    ROCK PAPER SCISSORS
+                </span>
+            </h1>
+            <p class="mt-4 text-gray-400 text-xl">Challenge the AI in this classic showdown</p>
+        </div>
+
+    <!-- Game Instructions -->
+    <div class="glass-effect-static rounded-2xl p-8 mb-16" data-aos="fade-up">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Main Instructions -->
+            <div class="col-span-2 bg-gray-800 bg-opacity-40 rounded-xl p-6">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg transform hover:scale-105 transition-transform">
+                            <i data-feather="info" class="text-white w-7 h-7"></i>
+                        </div>
+                    </div>
+                    <div class="ml-6">
+                        <h3 class="text-2xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-yellow-400">HOW TO PLAY</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
+                            <div class="text-center transform hover:scale-105 transition-transform">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <span class="font-bold text-white text-xl">1</span>
+                                </div>
+                                <p class="font-semibold text-blue-200">Choose your weapon</p>
+                            </div>
+                            <div class="text-center transform hover:scale-105 transition-transform">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <span class="font-bold text-white text-xl">2</span>
+                                </div>
+                                <p class="font-semibold text-green-200">Click BATTLE to fight</p>
+                            </div>
+                            <div class="text-center transform hover:scale-105 transition-transform">
+                                <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                    <span class="font-bold text-white text-xl">3</span>
+                                </div>
+                                <p class="font-semibold text-red-200">First to 5 wins the war!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Keyboard Shortcuts -->
+        <div class="glass-effect-static bg-gray-800 bg-opacity-40 rounded-xl p-6">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-feather="keyboard" class="text-white w-5 h-5"></i>
+                </div>
+                <h4 class="text-xl font-bold ml-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-200 to-purple-400">Keyboard Shortcuts</h4>
+            </div>
+            <div class="space-y-3 text-gray-300">
+                <div class="flex items-center justify-between bg-gray-700 bg-opacity-50 rounded-lg p-3 transform hover:scale-102 transition-transform">
+                    <kbd class="px-3 py-1.5 bg-gray-900 rounded-md text-purple-200 font-mono">R</kbd>
+                    <span class="ml-2">Select Rock</span>
+                </div>
+                <div class="flex items-center justify-between bg-gray-700 bg-opacity-50 rounded-lg p-3 transform hover:scale-102 transition-transform">
+                    <kbd class="px-3 py-1.5 bg-gray-900 rounded-md text-purple-200 font-mono">P</kbd>
+                    <span class="ml-2">Select Paper</span>
+                </div>
+                <div class="flex items-center justify-between bg-gray-700 bg-opacity-50 rounded-lg p-3 transform hover:scale-102 transition-transform">
+                    <kbd class="px-3 py-1.5 bg-gray-900 rounded-md text-purple-200 font-mono">S</kbd>
+                    <span class="ml-2">Select Scissors</span>
+                </div>
+                <div class="flex items-center justify-between bg-gray-700 bg-opacity-50 rounded-lg p-3 transform hover:scale-102 transition-transform">
+                    <kbd class="px-3 py-1.5 bg-gray-900 rounded-md text-purple-200 font-mono">Enter</kbd>
+                    <span class="ml-2">Battle</span>
+                </div>
+                <div class="flex items-center justify-between bg-gray-700 bg-opacity-50 rounded-lg p-3 transform hover:scale-102 transition-transform">
+                    <kbd class="px-3 py-1.5 bg-gray-900 rounded-md text-purple-200 font-mono">Esc</kbd>
+                    <span class="ml-2">Reset Game</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <!-- Game Arena -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            <!-- Player Card -->
+            <div class="glass-effect rounded-3xl p-8 neon-border" data-aos="fade-right">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-2xl font-bold text-white">Player</h2>
+                    <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-user text-white text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Weapon Selection -->
+                <div class="grid grid-cols-1 gap-4">
+                    <button id="rock-btn" class="weapon-btn hover-scale glass-effect p-6 rounded-xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                            <i class="fas fa-hand-rock text-white"></i>
+                        </div>
+                        <span class="text-white text-lg font-medium">ROCK</span>
+                    </button>
+
+                    <button id="paper-btn" class="weapon-btn hover-scale glass-effect p-6 rounded-xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                            <i class="fas fa-hand-paper text-white"></i>
+                        </div>
+                        <span class="text-white text-lg font-medium">PAPER</span>
+                    </button>
+
+                    <button id="scissors-btn" class="weapon-btn hover-scale glass-effect p-6 rounded-xl flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                            <i class="fas fa-hand-scissors text-white"></i>
+                        </div>
+                        <span class="text-white text-lg font-medium">SCISSORS</span>
+                    </button>
+                </div>
+
+                <div class="text-center mt-6">
+                    <p class="text-gray-400 mb-3">Your selection:</p>
+                    <div id="player-choice" class="text-2xl font-bold text-blue-300 h-10">-</div>
+                </div>
+            </div>
+
+            <!-- Battle Arena -->
+            <div class="glass-effect rounded-3xl p-8" data-aos="fade-up">
+                <div class="flex flex-col items-center justify-center h-full">
+                    <div class="text-6xl font-bold text-yellow-400 mb-6">VS</div>
+                    <div class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg mb-6">
+                        <i data-feather="zap" class="text-white text-4xl"></i>
+                    </div>
+
+                    <!-- Result Section -->
+                    <div class="text-center w-full">
+                        <h2 class="text-xl font-bold text-white mb-4">ROUND RESULT</h2>
+                        <div id="round-result" class="text-2xl font-bold text-gray-300 glass-effect rounded-xl p-4 min-h-[80px] flex items-center justify-center">
+                            MAKE YOUR MOVE!
+                        </div>
+                    </div>
+
+                    <!-- Game Controls -->
+                    <div class="flex flex-col space-y-4 mt-8 w-full">
+                        <button id="play-round-btn" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i data-feather="play" class="mr-3"></i>
+                            <span class="button-text">BATTLE!</span>
+                        </button>
+                        <button id="reset-game-btn" class="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg">
+                            <i data-feather="refresh-cw" class="mr-3"></i>
+                            <span>RESET GAME</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Card -->
+            <div class="glass-effect rounded-3xl p-8 neon-border" data-aos="fade-left">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-2xl font-bold text-white">Computer</h2>
+                    <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mb-8">
+                    <div class="bg-gray-700 p-10 rounded-full border-4 border-purple-500 w-48 h-48 flex items-center justify-center shadow-inner">
+                        <i data-feather="help-circle" id="computer-icon" class="text-6xl text-purple-400"></i>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-gray-400 mb-3">Computer's selection:</p>
+                    <div id="computer-choice" class="text-2xl font-bold text-purple-300 h-10">-</div>
+                </div>
+            </div>
+        </div>
+
+<!-- Score Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    <div class="glass-effect rounded-2xl p-6 text-center neon-border">
+        <h3 class="text-xl font-bold text-white mb-4">PLAYER SCORE</h3>
+        <div class="score-badge bg-white bg-opacity-20 text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4 border-4 border-white border-opacity-30">
+            <span id="human-score" class="text-4xl font-bold">0</span>
+        </div>
+        <p class="text-blue-200 font-medium">Your victories</p>
+    </div>
+
+    <div class="glass-effect rounded-2xl p-6 text-center neon-border">
+        <h3 class="text-xl font-bold text-white mb-4">COMPUTER SCORE</h3>
+        <div class="score-badge bg-white bg-opacity-20 text-white rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-4 border-4 border-white border-opacity-30">
+            <span id="computer-score" class="text-4xl font-bold">0</span>
+        </div>
+        <p class="text-purple-200 font-medium">Machine's victories</p>
+    </div>
+</div>
+
+<!-- Battle History -->
+<div class="glass-effect rounded-2xl p-6 mb-12">
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-bold text-white">Battle History</h3>
+        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+            <i data-feather="clock" class="text-white"></i>
+        </div>
+    </div>
+    <div id="history-list" class="space-y-3">
+        <!-- History items will be added here dynamically -->
+    </div>
+</div>
+    </main>
+
+    <!-- Victory Modal -->
+    <div id="victory-modal" class="fixed inset-0 flex items-center justify-center hidden">
+        <div class="glass-effect p-8 rounded-3xl text-center max-w-md mx-4">
+            <h2 class="victory-text text-4xl font-bold mb-4">Victory!</h2>
+            <p class="text-white text-xl mb-6">Congratulations! You've won the game!</p>
+            <button onclick="location.reload()" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-xl">
+                Play Again
+            </button>
+        </div>
+    </div>
+
+    <!-- Defeat Modal -->
+    <div id="defeat-modal" class="fixed inset-0 flex items-center justify-center hidden">
+        <div class="glass-effect p-8 rounded-3xl text-center max-w-md mx-4">
+            <h2 class="defeat-text text-4xl font-bold mb-4">Defeat!</h2>
+            <p class="text-white text-xl mb-6">Better luck next time!</p>
+            <button onclick="location.reload()" class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-3 px-6 rounded-xl">
+                Try Again
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>

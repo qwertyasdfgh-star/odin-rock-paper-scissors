@@ -1,0 +1,291 @@
+body {
+    top: 0;             
+    right: 0;           
+    bottom: 0;          
+    left: 0;            
+    background: linear-gradient(45deg, #1e3a8a, #000000, #4c1d95, #831843);
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Modernize font */
+body, .glass-effect, .weapon-btn {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Glassmorphism effect */
+.glass-effect {
+    background: rgba(245, 7, 7, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Neon border effect */
+.neon-border {
+    box-shadow: 0 0 15px rgba(66, 153, 225, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-border:hover {
+    box-shadow: 0 0 20px rgba(66, 153, 225, 0.7);
+}
+
+/* Hover scale effect */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Weapon button styles */
+.weapon-btn {
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflow for animation */
+}
+
+.weapon-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.weapon-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Active button state */
+.weapon-btn.active {
+    background: rgba(0, 82, 234, 0.886); 
+    border: 1px solid rgb(23, 91, 216);
+    box-shadow: 0 0 10px rgb(4, 85, 235);
+}
+
+/* Score badge animation */
+.score-badge {
+    transition: all 0.3s ease;
+    position: relative; 
+    overflow: hidden;
+}
+
+.score-badge.updated {
+    animation: scoreUpdate 0.5s ease-in-out;
+}
+
+@keyframes scoreUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.pulse-animation {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(100, 200, 255, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(100, 200, 255, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(100, 200, 255, 0);
+    }
+}
+
+/* Improved result display */
+#round-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e0f2fe; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 12px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(53, 56, 61, 0.5); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; 
+}
+
+#round-result:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe animation for score updates */
+@keyframes scoreUpdate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to score badges when updated */
+.score-badge.updated {
+    animation: scoreUpdate 0.5s ease-in-out;
+}
+
+/* Victory Animation */
+@keyframes victory {
+    0% { transform: scale(1); }
+    50% { 
+        transform: scale(1.2);
+        text-shadow: 0 0 20px #4ade80;
+    }
+    100% { transform: scale(1); }
+}
+
+.victory-text {
+    animation: victory 2s infinite;
+    color: #4ade80;
+}
+
+/* Defeat Animation */
+@keyframes defeat {
+    0% { transform: scale(1); }
+    50% { 
+        transform: scale(1.2);
+        text-shadow: 0 0 20px #ef4444;
+    }
+    100% { transform: scale(1); }
+}
+
+.defeat-text {
+    animation: defeat 2s infinite;
+    color: #ef4444;
+}
+
+.loading {
+    position: relative;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: loading 0.6s linear infinite;
+}
+
+@keyframes loading {
+    to { transform: rotate(360deg); }
+}
+
+/* Mobile-first approach */
+@media (max-width: 640px) {
+    .weapon-btn {
+        padding: 1rem;
+    }
+
+    .score-badge {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    #round-result {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+    }
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
+/* Static glassmorphism effect (no hover) */
+.glass-effect-static {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-effect:not(.glass-effect-static):hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hover-scale-102 {
+    transition: transform 0.2s ease;
+}
+
+.hover-scale-102:hover {
+    transform: scale(1.02);
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: confettiDrop linear forwards;
+    z-index: 1000;
+}
+
+@keyframes confettiDrop {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+/* Add different sizes and shapes for variety */
+.confetti:nth-child(2n) {
+    width: 15px;
+    height: 15px;
+}
+
+.confetti:nth-child(3n) {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.confetti:nth-child(4n) {
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+}
